@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 
 import FetchLocation from './components/FetchLocation';
 import FishMap from './components/FishMap';
-import smhi from './Utils/Smhi';
+import { getForecast } from './Utils/Utils';
 
 export default class FishLogger extends Component {
 
@@ -21,10 +21,13 @@ export default class FishLogger extends Component {
                     longitudeDelta: 0.0021,
                 }
             });
+            getForecast(position.coords.latitude, position.coords.longitude)
+                .then(res => {
+                    console.log('smhi', res['timeSeries'][0]);
+                });
         }, err => console.log(err));
-        const weather = this.state;
-        // const weather = smhi.getWeather(this.state.userLocation.latitude, this.state.userLocation.longitude);
-        console.log('smhi', weather);
+        // const weather = getForecast(this.state.userLocation.latitude, this.state.userLocation.longitude);
+        // const weather = this.state;
     };
 
     render() {
