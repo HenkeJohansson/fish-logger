@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, Modal, Text, TextInput, Picker } from 'react-native';
+import AwesomeButton from 'react-native-really-awesome-button';
 
 import FetchLocation from './components/FetchLocation';
 import FishMap from './components/FishMap';
@@ -8,7 +9,22 @@ import { getForecast } from './Utils/Utils';
 export default class FishLogger extends Component {
 
     state = {
-        userLocation: null
+        userLocation: null,
+        modalVisible: false,
+        form: {
+            labels: {
+                species: 'Art',
+                length: 'Längd',
+                weight: 'Vikt',
+                lure: 'Bete',
+            },
+            data: {
+                species: null,
+                length: null,
+                weight: null,
+                lure: null,
+            }
+        }
     };
 
     getUserLocationHandler = () => {
@@ -30,15 +46,70 @@ export default class FishLogger extends Component {
         // const weather = this.state;
     };
 
+    setModalVisible = (visible) => {
+        this.setState({modalVisible: visible});
+    };
+
     render() {
+
+        const formData = {
+            ...this.state.form.data
+        };
+        console.log('formData', formData);
         return (
             <View style={styles.container}>
                 <View style={styles.map}>
                     <FishMap userLocation={this.state.userLocation}/>
                 </View>
                 <View style={styles.logView}>
-                    <FetchLocation style={styles.logBtn} onGetLocation={this.getUserLocationHandler}/>
+                    <FetchLocation onGetLocation={this.getUserLocationHandler}/>
+                    <AwesomeButton
+                        onPress={() => {
+                            this.setModalVisible(true);
+                        }}>Awesome Button</AwesomeButton>
                 </View>
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => { console.log('Modal has been closed') }}>
+                    <ScrollView>
+                        <Text>Modal</Text>
+                        <View style={styles.Form}>
+                            <Picker
+                                style={styles.Picker}
+                                selectedValue={formData.species}
+                                onValueChange={(itemValue,itemIndex) => formData.species = itemValue}>
+                                <Picker.Item label="Gädda" value="pike" />
+                                <Picker.Item label="Abborre" value="perch" />
+                                <Picker.Item label="Gös" value="zander" />
+                            </Picker>
+                            <TextInput
+                                style={styles.Input}
+                                onChange={(text) => formData.species = text}
+                                value={this.state.form.labels.species}/>
+                            <TextInput
+                                style={styles.Input}
+                                onChange={(text) => formData.length = text}
+                                value={this.state.form.labels.length}/>
+                            <TextInput
+                                style={styles.Input}
+                                onChange={(text) => formData.weight = text}
+                                value={this.state.form.labels.weight}/>
+                            <TextInput
+                                style={styles.Input}
+                                onChange={(text) => formData.lure = text}
+                                value={this.state.form.labels.lure}/>
+                        </View>
+                        <View style={styles.WeatherData}>
+                            <Text>Weather data</Text>
+                        </View>
+                        <AwesomeButton
+                            onPress={() => {
+                                this.setModalVisible(!this.state.modalVisible);
+                            }}>Close Modal</AwesomeButton>
+                    </ScrollView>
+                </Modal>
             </View>
         );
     }
@@ -57,7 +128,26 @@ const styles = StyleSheet.create({
     },
     logView: {
         flex: 1,
+        flexDirection: 'row',
         backgroundColor: 'white'
     },
-    logBtn: {},
+    AwesomeButton: {
+        flex: 1,
+    },
+    Form: {},
+    Picker: {
+        height: 50,
+        width: '100%',
+        marginTop: 20
+    },
+    Input: {
+        height: 50,
+        width: 100,
+        marginTop: 20,
+        borderColor: '#000',
+        borderWidth: 1
+    },
+    WeatherData: {
+        marginTop: 20
+    }
 });

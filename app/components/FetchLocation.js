@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'react-native';
+import AwesomeButton from 'react-native-really-awesome-button';
 
 const fetchLocation = props => {
     return (
-        <Button title="Log Fish" onPress={props.onGetLocation} />
+        <AwesomeButton onPress={props.onGetLocation}>Logg fishy</AwesomeButton>
     );
 };
 
