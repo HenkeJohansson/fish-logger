@@ -55,7 +55,7 @@ export default class FishLogger extends Component {
         const formData = {
             ...this.state.form.data
         };
-        console.log('formData', formData);
+
         return (
             <View style={styles.container}>
                 <View style={styles.map}>
@@ -66,49 +66,60 @@ export default class FishLogger extends Component {
                     <AwesomeButton
                         onPress={() => {
                             this.setModalVisible(true);
-                        }}>Awesome Button</AwesomeButton>
+                        }}>Open Modal</AwesomeButton>
                 </View>
                 <Modal
                     animationType="slide"
                     transparent={false}
                     visible={this.state.modalVisible}
                     onRequestClose={() => { console.log('Modal has been closed') }}>
-                    <ScrollView>
-                        <Text>Modal</Text>
-                        <View style={styles.Form}>
-                            <Picker
-                                style={styles.Picker}
-                                selectedValue={formData.species}
-                                onValueChange={(itemValue,itemIndex) => formData.species = itemValue}>
-                                <Picker.Item label="Gädda" value="pike" />
-                                <Picker.Item label="Abborre" value="perch" />
-                                <Picker.Item label="Gös" value="zander" />
-                            </Picker>
-                            <TextInput
-                                style={styles.Input}
-                                onChange={(text) => formData.species = text}
-                                value={this.state.form.labels.species}/>
-                            <TextInput
-                                style={styles.Input}
-                                onChange={(text) => formData.length = text}
-                                value={this.state.form.labels.length}/>
-                            <TextInput
-                                style={styles.Input}
-                                onChange={(text) => formData.weight = text}
-                                value={this.state.form.labels.weight}/>
-                            <TextInput
-                                style={styles.Input}
-                                onChange={(text) => formData.lure = text}
-                                value={this.state.form.labels.lure}/>
+                    <View style={styles.container}>
+                        <View style={styles.modalMap}>
+                            <FishMap userLocation={this.state.userLocation}/>
                         </View>
-                        <View style={styles.WeatherData}>
-                            <Text>Weather data</Text>
+                        <View style={styles.ScrollSection}>
+                            <ScrollView>
+                                <View style={styles.Form}>
+                                    <Picker
+                                        style={styles.Picker}
+                                        selectedValue={formData.species}
+                                        onValueChange={(itemValue,itemIndex) => formData.species = itemValue}>
+                                        <Picker.Item label="Gädda" value="pike" />
+                                        <Picker.Item label="Abborre" value="perch" />
+                                        <Picker.Item label="Gös" value="zander" />
+                                    </Picker>
+                                    <TextInput
+                                        style={styles.Input}
+                                        onChange={(text) => formData.species = text}
+                                        value={this.state.form.labels.species}/>
+                                    <TextInput
+                                        style={styles.Input}
+                                        onChange={(text) => formData.length = text}
+                                        value={this.state.form.labels.length}/>
+                                    <TextInput
+                                        style={styles.Input}
+                                        onChange={(text) => formData.weight = text}
+                                        value={this.state.form.labels.weight}/>
+                                    <TextInput
+                                        style={styles.Input}
+                                        onChange={(text) => formData.lure = text}
+                                        value={this.state.form.labels.lure}/>
+                                </View>
+                                <View style={styles.WeatherData}>
+                                    <Text>Weather data</Text>
+                                    <Text>Weather data</Text>
+                                    <Text>Weather data</Text>
+                                    <Text>Weather data</Text>
+                                    <Text>Weather data</Text>
+                                    <Text>Weather data</Text>
+                                </View>
+                                <AwesomeButton
+                                    onPress={() => {
+                                        this.setModalVisible(!this.state.modalVisible);
+                                    }}>Close Modal</AwesomeButton>
+                            </ScrollView>
                         </View>
-                        <AwesomeButton
-                            onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible);
-                            }}>Close Modal</AwesomeButton>
-                    </ScrollView>
+                    </View>
                 </Modal>
             </View>
         );
@@ -134,11 +145,23 @@ const styles = StyleSheet.create({
     AwesomeButton: {
         flex: 1,
     },
-    Form: {},
+    modalMap: {
+        flex: 3,
+        width: '100%',
+        backgroundColor: '#FF8C00'
+    },
+    ScrollSection: {
+        flex: 7,
+        width: '100%'
+    },
+    Form: {
+        flex: 6,
+        width: '100%',
+        backgroundColor: '#D90000'
+    },
     Picker: {
         height: 50,
-        width: '100%',
-        marginTop: 20
+        width: '100%'
     },
     Input: {
         height: 50,
@@ -148,6 +171,8 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     WeatherData: {
-        marginTop: 20
+        paddingTop: 20,
+        paddingBottom: 20,
+        backgroundColor: '#04756F'
     }
 });
