@@ -74,6 +74,9 @@ export default class FishLogger extends Component {
                     visible={this.state.modalVisible}
                     onRequestClose={() => { console.log('Modal has been closed') }}>
                     <View style={styles.container}>
+                        <View style={styles.Heading}>
+                            <Text style={{fontSize: 20, textAlign: 'center'}}>Modal</Text>
+                        </View>
                         <View style={styles.modalMap}>
                             <FishMap userLocation={this.state.userLocation}/>
                         </View>
@@ -144,6 +147,11 @@ const styles = StyleSheet.create({
     },
     AwesomeButton: {
         flex: 1,
+    },
+    Heading: {
+        paddingTop: 35,
+        paddingBottom: 20,
+        backgroundColor: '#0776B8'
     },
     modalMap: {
         flex: 3,

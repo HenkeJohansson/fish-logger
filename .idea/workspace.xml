@@ -4,9 +4,6 @@
     <list default="true" id="169e58e6-585c-43ff-b219-adb8ba9fe99b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/FishLogger.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/FishLogger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/FetchLocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/FetchLocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,8 +38,8 @@
       <file leaf-file-name="FishLogger.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/FishLogger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="104" column="53" lean-forward="true" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+            <state relative-caret-position="494">
+              <caret line="64" column="48" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="48" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -62,7 +59,7 @@
       <file leaf-file-name="FishMap.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/FishMap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+            <state relative-caret-position="27">
               <caret line="7" column="75" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="75" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -115,6 +112,7 @@
         <option value="$PROJECT_DIR$/app/Utils/Smhi.js" />
         <option value="$PROJECT_DIR$/app/Utils/Utils.js" />
         <option value="$PROJECT_DIR$/app/components/FetchLocation.js" />
+        <option value="$PROJECT_DIR$/app/components/LoggModal.js" />
         <option value="$PROJECT_DIR$/app/FishLogger.js" />
       </list>
     </option>
@@ -218,12 +216,12 @@
       <workItem from="1527984311506" duration="4614000" />
       <workItem from="1528043298868" duration="4571000" />
       <workItem from="1528303916088" duration="6262000" />
-      <workItem from="1528572187105" duration="7694000" />
+      <workItem from="1528572187105" duration="10782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32815000" />
+    <option name="totallyTimeSpent" value="35903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1961" y="24" width="1879" height="1176" extended-state="6" />
@@ -261,13 +259,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -456,16 +447,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Utils/Smhi.js" />
-    <entry file="file://$PROJECT_DIR$/app/components/FishMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="7" column="75" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Utils/Utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -490,10 +471,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/FishMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="7" column="75" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/LoggModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/FishLogger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="104" column="53" lean-forward="true" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+        <state relative-caret-position="494">
+          <caret line="64" column="48" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="48" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
